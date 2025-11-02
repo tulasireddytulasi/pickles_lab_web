@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pickles_lab_dashboard/app/widgets/responsive_layout.dart';
 
 import 'widgets/dashboard_header.dart';
+import 'widgets/metric_cards_list.dart';
 
 /// The root screen for the Pickles Dashboard view.
 ///
@@ -23,6 +24,9 @@ class DashboardScreen extends StatelessWidget {
 
         const SizedBox(height: 24.0), // Spacing below the header
         // Placeholder for the main content widgets (Header, Metrics, Charts, Tables)
+
+        MetricCardsList(),
+
         Text(
           'Main Dashboard Content Area',
           style: Theme.of(context).textTheme.headlineLarge,

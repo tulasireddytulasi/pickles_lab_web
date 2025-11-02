@@ -6,6 +6,7 @@ import 'app_colors.dart';
 
 /// Defines screen size breakpoints based on HTML/CSS media queries.
 class AppBreakpoints {
+  static const double largeDesktop = 1024.0;
   static const double desktop = 769.0;
   static const double tablet = 600.0;
   static const double mobile = 0.0;

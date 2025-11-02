@@ -70,8 +70,8 @@ class MockDataService {
         icon: Icons.attach_money_outlined,
       ),
       MetricData(
-        title: 'Total Orders',
-        value: 1895,
+        title: 'Active Orders',
+        value: 866,
         change: _random.nextDouble() * (10 - 5) + 5, // 5% to 10%
         unit: 'Orders',
         icon: Icons.shopping_cart_outlined,
@@ -82,13 +82,6 @@ class MockDataService {
         change: -(_random.nextDouble() * (5 - 1) + 1), // -1% to -5%
         unit: 'People',
         icon: Icons.people_outline,
-      ),
-      MetricData(
-        title: 'Avg. Order Value',
-        value: 66.64,
-        change: _random.nextDouble() * (8 - 3) + 3, // 3% to 8%
-        unit: '\$',
-        icon: Icons.receipt_long_outlined,
       ),
     ];
   }
