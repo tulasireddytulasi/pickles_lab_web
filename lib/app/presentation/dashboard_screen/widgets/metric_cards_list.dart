@@ -29,6 +29,9 @@ class _MetricCardsListState extends State<MetricCardsList> {
       crossAxisCount = 3;
     } else if (screenWidth > AppBreakpoints.desktop) {
       // Tablet/Small Desktop
+      crossAxisCount = 3;
+    } else if (screenWidth > AppBreakpoints.tablet) {
+      // Tablet/Small Desktop
       crossAxisCount = 2;
     } else {
       // Mobile
