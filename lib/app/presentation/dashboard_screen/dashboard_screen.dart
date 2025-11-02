@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pickles_lab_dashboard/app/widgets/responsive_layout.dart';
-
+import 'widgets/chart_widget.dart';
 import 'widgets/dashboard_header.dart';
 import 'widgets/metric_cards_list.dart';
 
@@ -23,14 +23,14 @@ class DashboardScreen extends StatelessWidget {
         const DashboardHeader(),
 
         const SizedBox(height: 24.0), // Spacing below the header
+
         // Placeholder for the main content widgets (Header, Metrics, Charts, Tables)
+        const MetricCardsList(),
 
-        MetricCardsList(),
+        // 3. Sales Trend Chart (Takes full width) chart_widget
+        const ChartWidget(),
 
-        Text(
-          'Main Dashboard Content Area',
-          style: Theme.of(context).textTheme.headlineLarge,
-        ),
+        Text('Main Dashboard Content Area', style: Theme.of(context).textTheme.headlineLarge),
         const SizedBox(height: 200),
         const Text('Content placeholder...'),
         const SizedBox(height: 1200),
@@ -38,8 +38,6 @@ class DashboardScreen extends StatelessWidget {
       ],
     );
 
-    return ResponsiveLayout(
-      child: dashboardContent,
-    );
+    return ResponsiveLayout(child: dashboardContent);
   }
 }

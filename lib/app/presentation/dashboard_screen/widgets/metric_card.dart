@@ -98,7 +98,7 @@ class MetricCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'vs. previous period',
+                  'vs. last week',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
