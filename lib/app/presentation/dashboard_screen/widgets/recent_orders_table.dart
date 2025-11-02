@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 import 'package:pickles_lab_dashboard/app/data/mock_data/metric_mock_data.dart';
 import 'data_display/status_badge.dart';
+import 'order_details_modal.dart';
 
 /// A table widget that displays a list of recent orders.
 ///
@@ -108,10 +109,7 @@ class RecentOrdersTable extends StatelessWidget {
                           message: 'View Details',
                           child: InkWell(
                             onTap: () {
-                              // TODO: Implement Modal opening (Step 11)
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Viewing Order: \${order.id}')),
-                              );
+                              showOrderDetailsModal(context: context, orderId: order.id);
                             },
                             child: const Padding(
                               padding: EdgeInsets.all(8.0),

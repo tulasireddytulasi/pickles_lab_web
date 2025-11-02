@@ -1,4 +1,4 @@
-// lib/data/mock_data.dart
+// lib/data/mock_data.dart (UPDATED with DetailedOrder support)
 
 import 'dart:math';
 
@@ -50,6 +50,57 @@ class ChartData {
   final double value;
 
   ChartData({required this.label, required this.value});
+}
+
+/// Represents a slice in the pie chart (Product Category).
+class PieData {
+  final String category;
+  final double salesPercentage; // 0.0 to 1.0
+  final Color color;
+
+  PieData({
+    required this.category,
+    required this.salesPercentage,
+    required this.color,
+  });
+}
+
+/// Represents a single product line item in the detailed order view.
+class OrderItem {
+  final String productName;
+  final int quantity;
+  final double unitPrice;
+  final double totalPrice;
+
+  OrderItem({
+    required this.productName,
+    required this.quantity,
+    required this.unitPrice,
+    required this.totalPrice,
+  });
+}
+
+/// Represents the full detailed data structure for a single order.
+class DetailedOrder {
+  final Order baseOrder; // The basic data available in the table
+  final String customerEmail;
+  final String shippingAddress;
+  final String paymentMethod;
+  final double subtotal;
+  final double shippingFee;
+  final double totalAmount;
+  final List<OrderItem> items;
+
+  DetailedOrder({
+    required this.baseOrder,
+    required this.customerEmail,
+    required this.shippingAddress,
+    required this.paymentMethod,
+    required this.subtotal,
+    required this.shippingFee,
+    required this.totalAmount,
+    required this.items,
+  });
 }
 
 
@@ -107,6 +158,9 @@ class MockDataService {
     });
   }
 
+  // Stored list of mock orders for consistency
+  static final List<Order> _mockOrders = MockDataService().getRecentOrders();
+
   /// Generates mock data for the Sales Trend Chart.
   List<ChartData> getSalesTrendData() {
     return [
@@ -117,5 +171,55 @@ class MockDataService {
       ChartData(label: 'May', value: 1800),
       ChartData(label: 'Jun', value: 2500),
     ];
+  }
+
+  /// Generates mock data for the Product Category Pie Chart.
+  List<PieData> getCategorySales() {
+    return [
+      PieData(category: 'Pickle Jars', salesPercentage: 0.40, color: const Color(0xFF4CAF50)),
+      PieData(category: 'Relishes', salesPercentage: 0.25, color: const Color(0xFFFFC107)),
+      PieData(category: 'Spicy Varieties', salesPercentage: 0.15, color: const Color(0xFF3F51B5)),
+      PieData(category: 'Fermented Veg', salesPercentage: 0.10, color: const Color(0xFF00BCD4)),
+      PieData(category: 'Bulk/Wholesale', salesPercentage: 0.10, color: const Color(0xFFF44336)),
+    ];
+  }
+
+  // *** DEFINED METHOD TO FIX THE ERROR ***
+  /// Retrieves a mock detailed order object based on its ID.
+  DetailedOrder getDetailedOrder(String orderId) {
+    // Find the base order from the list (or create a new mock if not found)
+    final baseOrder = _mockOrders.firstWhere(
+          (order) => order.id == orderId,
+      orElse: () => Order(
+        id: orderId,
+        productName: 'Custom Mix',
+        productImageUrl: '',
+        customerName: 'Default User',
+        orderDate: DateTime.now(),
+        status: 'Processing',
+        amount: 150.00,
+      ),
+    );
+
+    // Generate mock line items
+    final item1 = OrderItem(productName: baseOrder.productName, quantity: 2, unitPrice: baseOrder.amount / 2, totalPrice: baseOrder.amount);
+    final item2 = OrderItem(productName: 'Pickle Chips', quantity: 1, unitPrice: 20.00, totalPrice: 20.00);
+    final items = [item1, item2];
+
+    // Calculate totals
+    final subtotal = items.fold(0.0, (sum, item) => sum + item.totalPrice);
+    const shippingFee = 7.50;
+    final totalAmount = subtotal + shippingFee;
+
+    return DetailedOrder(
+      baseOrder: baseOrder,
+      customerEmail: '${baseOrder.customerName.replaceAll(' ', '.').toLowerCase()}@example.com',
+      shippingAddress: '123 Dill Street, Pickle City, PC 90210',
+      paymentMethod: 'Visa ending in 4242',
+      subtotal: subtotal,
+      shippingFee: shippingFee,
+      totalAmount: totalAmount,
+      items: items,
+    );
   }
 }
