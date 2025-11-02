@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 import 'package:pickles_lab_dashboard/app/data/mock_data/metric_mock_data.dart';
 import 'data_display/status_badge.dart';
+import 'order_details_modal.dart';
 
 /// The Mobile/Card view component for a single Recent Order item.
 ///
@@ -77,10 +78,7 @@ class OrderListItem extends StatelessWidget {
                       label: 'View details',
                       child: InkWell(
                         onTap: () {
-                          // TODO: Implement Modal opening (Step 11)
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Viewing Order: ${order.id}')),
-                          );
+                          showOrderDetailsModal(context: context, orderId: order.id);
                         },
                         child: Text(
                           'View Details',
