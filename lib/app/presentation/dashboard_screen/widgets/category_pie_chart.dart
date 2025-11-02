@@ -49,7 +49,7 @@ class CategoryPieChart extends StatelessWidget {
 
                       // 2. The Legend/Indicators
                       Positioned(
-                        right: 0,
+                        right: 10,
                         child: _buildLegend(context),
                       ),
                     ],

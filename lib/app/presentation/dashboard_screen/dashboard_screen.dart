@@ -30,8 +30,7 @@ class DashboardScreen extends StatelessWidget {
         // 3. Sales Trend Chart (Takes full width) chart_widget
         const ChartWidget(),
 
-        Text('Main Dashboard Content Area', style: Theme.of(context).textTheme.headlineLarge),
-        const SizedBox(height: 200),
+
         const Text('Content placeholder...'),
         const SizedBox(height: 1200),
         const Text('End of content placeholder...'),
