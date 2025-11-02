@@ -34,15 +34,20 @@ class OrderListItem extends StatelessWidget {
                     children: [
                       // Image Placeholder
                       Container(
-                        width: 48,
-                        height: 48,
+                        width: 40,
+                        height: 40,
                         decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
                           color: AppColors.border,
-                          borderRadius: BorderRadius.circular(4),
                         ),
+                        clipBehavior: Clip.antiAlias,
                         margin: const EdgeInsets.only(right: 12),
-                        child: const Center(
-                            child: Icon(Icons.image_outlined, size: 24, color: AppColors.textLight)),
+                        child: Image.network(
+                          order.productImageUrl,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                          const Center(child: Icon(Icons.broken_image, size: 20, color: AppColors.textMedium)),
+                        ),
                       ),
 
                       // Product Name and ID
