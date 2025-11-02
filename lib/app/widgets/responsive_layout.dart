@@ -30,31 +30,33 @@ class ResponsiveLayout extends StatelessWidget {
           // --- Desktop Layout ---
           // Uses a Row: [Sidebar | Main Content (with Top Nav)]
           return Scaffold(
-            body: Row(
-              children: [
-                // 1. Sidebar (Fixed width)
-                const DesktopSidebar(),
+            body: SafeArea(
+              child: Row(
+                children: [
+                  // 1. Sidebar (Fixed width)
+                  const DesktopSidebar(),
 
-                // 2. Main Content Area (Flexible width)
-                Expanded(
-                  child: Column(
-                    children: [
-                      // 2a. Top Navigation Bar (Stretches across main content)
-                      const TopNavigationBar(),
+                  // 2. Main Content Area (Flexible width)
+                  Expanded(
+                    child: Column(
+                      children: [
+                        // 2a. Top Navigation Bar (Stretches across main content)
+                        const TopNavigationBar(),
 
-                      // 2b. Main Dashboard Content (The scrollable body)
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Padding(
-                            padding: const EdgeInsets.all(24.0),
-                            child: child,
+                        // 2b. Main Dashboard Content (The scrollable body)
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.all(24.0),
+                              child: child,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         } else {
@@ -73,10 +75,12 @@ class ResponsiveLayout extends StatelessWidget {
             bottomNavigationBar: const MobileBottomNav(),
 
             // Main Dashboard Content
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-                child: child,
+            body: SafeArea(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                  child: child,
+                ),
               ),
             ),
           );
