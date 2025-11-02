@@ -14,7 +14,7 @@ class DesktopSidebar extends StatelessWidget {
     final currentPath = GoRouterState.of(context).fullPath ?? '/';
 
     // Fixed width based on HTML (256px wide, which is w-64 in Tailwind)
-    const double sidebarWidth = 256.0;
+    const double sidebarWidth = 226.0;
 
     return Container(
       width: sidebarWidth,
