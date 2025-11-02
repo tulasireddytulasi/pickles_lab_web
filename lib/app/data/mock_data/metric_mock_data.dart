@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 
 // --- Data Models ---
 
@@ -13,6 +14,7 @@ class MetricData {
   final double change;
   final String unit;
   final IconData icon;
+  final Color iconColor;
 
   const MetricData({
     required this.title,
@@ -20,6 +22,7 @@ class MetricData {
     required this.change,
     required this.unit,
     required this.icon,
+    required this.iconColor,
   });
 }
 
@@ -119,6 +122,7 @@ class MockDataService {
         change: _random.nextDouble() * (20 - 10) + 10, // 10% to 20%
         unit: '\$',
         icon: Icons.attach_money_outlined,
+        iconColor: AppColors.success,
       ),
       MetricData(
         title: 'Active Orders',
@@ -126,6 +130,7 @@ class MockDataService {
         change: _random.nextDouble() * (10 - 5) + 5, // 5% to 10%
         unit: 'Orders',
         icon: Icons.shopping_cart_outlined,
+        iconColor: AppColors.secondary,
       ),
       MetricData(
         title: 'New Customers',
@@ -133,6 +138,7 @@ class MockDataService {
         change: -(_random.nextDouble() * (5 - 1) + 1), // -1% to -5%
         unit: 'People',
         icon: Icons.people_outline,
+        iconColor: AppColors.info,
       ),
     ];
   }

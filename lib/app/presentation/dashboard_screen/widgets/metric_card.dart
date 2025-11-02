@@ -60,10 +60,23 @@ class MetricCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                Icon(
-                  metric.icon,
-                  size: 24,
-                  color: AppColors.primary,
+
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    // Using a subtle background color defined in AppColors
+                    color: metric.iconColor.withValues(alpha: 0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: Icon(
+                      metric.icon,
+                      // Icon size is reduced to fit well within the 40x40 circle
+                      size: 24,
+                      color: metric.iconColor,
+                    ),
+                  ),
                 ),
               ],
             ),
