@@ -148,6 +148,18 @@ class MockDataService {
     final List<String> products = ['Pickle Jar (Large)', 'Spicy Pickles', 'Sweet Relish', 'Pickle Juice', 'Gherkins'];
     final List<String> customers = ['Alex Johnson', 'Samantha Lee', 'Chris Miller', 'Dana Cruz', 'Tom Hanks'];
     final List<String> statuses = ['Completed', 'Processing', 'Cancelled'];
+    final List<String> imageUrl = [
+      "https://readdy.ai/api/search-image?query=gourmet%20pasta%20dish%20with%20fresh%20basil%20and%20parmesan%2C%20served%20on%20a%20white%20plate%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food1&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20burger%20with%20cheese%2C%20lettuce%2C%20and%20tomato%20on%20a%20wooden%20board%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food2&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20salad%20with%20fresh%20vegetables%20and%20grilled%20chicken%2C%20served%20in%20a%20white%20bowl%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food3&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20pizza%20with%20fresh%20mozzarella%2C%20basil%2C%20and%20tomatoes%2C%20wood-fired%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food4&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20sushi%20platter%20with%20various%20rolls%20and%20sashimi%2C%20served%20on%20a%20black%20plate%20with%20chopsticks%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food5&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20pasta%20dish%20with%20fresh%20basil%20and%20parmesan%2C%20served%20on%20a%20white%20plate%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food1&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20burger%20with%20cheese%2C%20lettuce%2C%20and%20tomato%20on%20a%20wooden%20board%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food2&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20salad%20with%20fresh%20vegetables%20and%20grilled%20chicken%2C%20served%20in%20a%20white%20bowl%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food3&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20pizza%20with%20fresh%20mozzarella%2C%20basil%2C%20and%20tomatoes%2C%20wood-fired%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food4&orientation=squarish",
+      "https://readdy.ai/api/search-image?query=gourmet%20sushi%20platter%20with%20various%20rolls%20and%20sashimi%2C%20served%20on%20a%20black%20plate%20with%20chopsticks%2C%20professional%20food%20photography%2C%20soft%20lighting%2C%20restaurant%20quality&width=100&height=100&seq=food5&orientation=squarish",
+    ];
 
     return List.generate(10, (index) {
       final status = statuses[_random.nextInt(statuses.length)];
@@ -155,7 +167,7 @@ class MockDataService {
         id: 'ORD-${1000 + index}',
         productName: products[_random.nextInt(products.length)],
         // Use a placeholder image path
-        productImageUrl: 'assets/images/pickle_${_random.nextInt(5) + 1}.png',
+        productImageUrl: imageUrl[index],
         customerName: customers[_random.nextInt(customers.length)],
         orderDate: DateTime.now().subtract(Duration(days: index)),
         status: status,

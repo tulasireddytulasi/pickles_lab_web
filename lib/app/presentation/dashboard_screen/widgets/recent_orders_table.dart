@@ -71,16 +71,21 @@ class RecentOrdersTable extends StatelessWidget {
                     DataCell(
                       Row(
                         children: [
-                          // Placeholder for a small product image
                           Container(
-                            width: 32,
-                            height: 32,
+                            width: 40,
+                            height: 40,
                             decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
                               color: AppColors.border,
-                              borderRadius: BorderRadius.circular(4),
                             ),
-                            child: const Center(
-                                child: Icon(Icons.image_outlined, size: 18, color: AppColors.textLight)),
+                            clipBehavior: Clip.antiAlias,
+                            margin: const EdgeInsets.only(right: 12),
+                            child: Image.network(
+                              order.productImageUrl,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                              const Center(child: Icon(Icons.broken_image, size: 20, color: AppColors.textMedium)),
+                            ),
                           ),
                           const SizedBox(width: 10),
                           Expanded(child: Text(order.productName, style: theme.textTheme.bodyMedium, overflow: TextOverflow.ellipsis,)),
