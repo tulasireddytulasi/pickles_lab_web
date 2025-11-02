@@ -171,7 +171,7 @@ class _OrderDetailsModalState extends State<OrderDetailsModal> {
               ),
             ],
           ),
-        )).toList(),
+        )),
       ],
     );
   }

@@ -5,6 +5,7 @@ import 'package:pickles_lab_dashboard/app/widgets/responsive_layout.dart';
 import 'widgets/chart_widget.dart';
 import 'widgets/dashboard_header.dart';
 import 'widgets/metric_cards_list.dart';
+import 'widgets/products_customers_list.dart';
 import 'widgets/recent_orders_container.dart';
 
 /// The root screen for the Pickles Dashboard view.
@@ -33,6 +34,8 @@ class DashboardScreen extends StatelessWidget {
 
         // 4. Recent Orders Table/List
         const RecentOrdersContainer(),
+
+        const ProductsCustomersList(),
 
 
         const Text('Content placeholder...'),
