@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
+import 'package:pickles_lab_dashboard/app/core/constants/app_keys.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_theme.dart';
 
 import 'recent_customers_list.dart';
@@ -24,19 +24,19 @@ class _ProductsCustomersListState extends State<ProductsCustomersList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Top Products (1/2 width)
-          const Expanded(child: TopProductsList()),
+          const Expanded(child: TopProductsList(key: AppKeys.topProductsList)),
           const SizedBox(width: 16.0),
           // Recent Customers Placeholder (1/2 width)
-          // Expanded(
-          //   child: const RecentCustomersList(),
-          // ),
+          Expanded(
+            child: const RecentCustomersList(key: AppKeys.recentCustomersList),
+          ),
         ],
       )
           : Column(
         children: [
-          const TopProductsList(),
+          const TopProductsList(key: AppKeys.topProductsList),
           const SizedBox(height: 16.0),
-          const RecentCustomersList(),
+          const RecentCustomersList(key: AppKeys.recentCustomersList),
         ],
       );
     },);
