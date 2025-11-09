@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pickles_lab_dashboard/app/core/constants/app_keys.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 
@@ -8,11 +9,24 @@ import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 class MobileBottomNav extends StatelessWidget {
   const MobileBottomNav({super.key});
 
-  // Hardcoded for now, would typically be managed by the main screen state
-  final int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
+    final String currentPath = GoRouterState.of(context).fullPath ?? '/';
+    int currentIndex;
+    if (currentPath == '/') {
+      currentIndex = 0;
+    } else if (currentPath.startsWith('/orders')) {
+      currentIndex = 1;
+    } else if (currentPath.startsWith('/products')) {
+      currentIndex = 2;
+    } else if (currentPath.startsWith('/customers')) {
+      currentIndex = 3;
+    } else if (currentPath.startsWith('/settings')) {
+      currentIndex = 4;
+    } else {
+      currentIndex = 0;
+    }
+
     return Container(
       decoration: const BoxDecoration(
         color: AppColors.cardBackground, // bg-white
@@ -21,7 +35,23 @@ class MobileBottomNav extends StatelessWidget {
       child: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
-          // TODO: Implement actual navigation (e.g., context.go('/orders'))
+          switch (index) {
+            case 0:
+              context.go('/');
+              break;
+            case 1:
+              context.go('/orders');
+              break;
+            case 2:
+              context.go('/products');
+              break;
+            case 3:
+              context.go('/customers');
+              break;
+            case 4:
+              context.go('/settings');
+              break;
+          }
         },
         backgroundColor: AppColors.cardBackground,
         type: BottomNavigationBarType.fixed, // Ensure items don't shift
