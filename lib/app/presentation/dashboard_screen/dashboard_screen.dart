@@ -1,7 +1,6 @@
 // lib/screens/dashboard/dashboard_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:pickles_lab_dashboard/app/widgets/responsive_layout.dart';
 import 'widgets/chart_widget.dart';
 import 'widgets/dashboard_header.dart';
 import 'widgets/metric_cards_list.dart';
@@ -18,14 +17,13 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Placeholder for the full dashboard content (Header, Metrics, Charts, Tables)
-    final dashboardContent = Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // 1. Dashboard Header (Title, Date Selector, Export Button)
         const DashboardHeader(),
 
         const SizedBox(height: 24.0), // Spacing below the header
-
         // Placeholder for the main content widgets (Header, Metrics, Charts, Tables)
         const MetricCardsList(),
 
@@ -37,13 +35,10 @@ class DashboardScreen extends StatelessWidget {
 
         const ProductsCustomersList(),
 
-
         const Text('Content placeholder...'),
         const SizedBox(height: 1200),
         const Text('End of content placeholder...'),
       ],
     );
-
-    return ResponsiveLayout(child: dashboardContent);
   }
 }

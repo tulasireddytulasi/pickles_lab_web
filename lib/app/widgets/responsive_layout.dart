@@ -1,11 +1,8 @@
-// lib/widgets/layout/responsive_layout.dart
-
 import 'package:flutter/material.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_theme.dart';
 import 'package:pickles_lab_dashboard/app/widgets/navigation/desktop_sidebar.dart';
 import 'package:pickles_lab_dashboard/app/widgets/navigation/mobile_bottom_nav.dart';
 import 'package:pickles_lab_dashboard/app/widgets/navigation/top_navigation_bar.dart';
-
 
 /// A widget that uses LayoutBuilder to create a responsive scaffold structure.
 ///
@@ -14,10 +11,7 @@ import 'package:pickles_lab_dashboard/app/widgets/navigation/top_navigation_bar.
 class ResponsiveLayout extends StatelessWidget {
   final Widget child;
 
-  const ResponsiveLayout({
-    super.key,
-    required this.child,
-  });
+  const ResponsiveLayout({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +39,7 @@ class ResponsiveLayout extends StatelessWidget {
 
                         // 2b. Main Dashboard Content (The scrollable body)
                         Expanded(
-                          child: SingleChildScrollView(
-                            child: Padding(
-                              padding: const EdgeInsets.all(24.0),
-                              child: child,
-                            ),
-                          ),
+                          child: SingleChildScrollView(padding: const EdgeInsets.all(24.0), child: child),
                         ),
                       ],
                     ),

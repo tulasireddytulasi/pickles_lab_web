@@ -1,19 +1,20 @@
+// lib/screens/dashboard/widgets/desktop_sidebar.dart (UPDATED)
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 
 /// The left navigation sidebar visible on desktop screens.
-///
-/// It is a [StatelessWidget] for layout, relying on child widgets for interaction state.
 class DesktopSidebar extends StatelessWidget {
   const DesktopSidebar({super.key});
 
   @override
   Widget build(BuildContext context) {
     // FIX: Use GoRouterState.of(context).fullPath to get the current route path
+    // We use a safe check for the path, defaulting to '/' for the dashboard.
     final currentPath = GoRouterState.of(context).fullPath ?? '/';
 
-    // Fixed width based on HTML (256px wide, which is w-64 in Tailwind)
+    // Fixed width based on HTML (240px wide which is w-60, 226px is fine)
     const double sidebarWidth = 226.0;
 
     return Container(
@@ -32,34 +33,71 @@ class DesktopSidebar extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               'Pickles Admin', // Based on HTML/design intent
-              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                color: AppColors.primary,
-                fontWeight: FontWeight.w700,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineLarge!.copyWith(color: AppColors.primary, fontWeight: FontWeight.w700),
             ),
           ),
           const SizedBox(height: 32),
 
-          // Menu Items (Minimal Placeholder)
+          // Menu Items (Fully Implemented)
           SidebarItem(
             icon: Icons.dashboard_outlined,
             title: 'Dashboard',
-            // Check if the current path matches the route
+            path: '/',
+            // Define the route path
             isSelected: currentPath == '/',
             onTap: () => context.go('/'),
           ),
-          const SidebarItem(
-            icon: Icons.shopping_cart_outlined,
-            title: 'Orders',
-            isSelected: false,
-            onTap: null, // Placeholder
-          ),
-          const SidebarItem(
+          SidebarItem(
+            // HTML: ri-shopping-bag-3-line
             icon: Icons.shopping_bag_outlined,
-            title: 'Products',
-            isSelected: false,
-            onTap: null, // Placeholder
+            title: 'Orders',
+            path: '/orders',
+            isSelected: currentPath.startsWith('/orders'),
+            onTap: () => context.go('/orders'),
           ),
+          SidebarItem(
+            // HTML: ri-store-2-line
+            icon: Icons.store_outlined,
+            title: 'Products',
+            path: '/products',
+            isSelected: currentPath.startsWith('/products'),
+            onTap: () => context.go('/products'),
+          ),
+          SidebarItem(
+            // HTML: ri-user-3-line
+            icon: Icons.people_outlined,
+            title: 'Customers',
+            path: '/customers',
+            isSelected: currentPath.startsWith('/customers'),
+            onTap: () => context.go('/customers'),
+          ),
+          SidebarItem(
+            // HTML: ri-bar-chart-2-line
+            icon: Icons.bar_chart_outlined,
+            title: 'Analytics',
+            path: '/analytics',
+            isSelected: currentPath.startsWith('/analytics'),
+            onTap: () => context.go('/analytics'),
+          ),
+          SidebarItem(
+            // HTML: ri-store-3-line
+            icon: Icons.storefront_outlined,
+            title: 'Sellers/Merchants',
+            path: '/sellers',
+            isSelected: currentPath.startsWith('/sellers'),
+            onTap: () => context.go('/sellers'),
+          ),
+          SidebarItem(
+            // HTML: ri-settings-4-line
+            icon: Icons.settings_outlined,
+            title: 'Settings',
+            path: '/settings',
+            isSelected: currentPath.startsWith('/settings'),
+            onTap: () => context.go('/settings'),
+          ),
+
           const Spacer(),
 
           // Premium CTA / Footer (Minimal Placeholder)
@@ -73,9 +111,7 @@ class DesktopSidebar extends StatelessWidget {
               ),
               child: Text(
                 'Upgrade to Premium!',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: AppColors.primary,
-                ),
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppColors.primary),
               ),
             ),
           ),
@@ -89,6 +125,7 @@ class DesktopSidebar extends StatelessWidget {
 class SidebarItem extends StatelessWidget {
   final IconData icon;
   final String title;
+  final String path; // New: Add path property
   final bool isSelected;
   final VoidCallback? onTap;
 
@@ -96,6 +133,7 @@ class SidebarItem extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
+    required this.path, // Required
     required this.isSelected,
     this.onTap,
   });
@@ -115,10 +153,7 @@ class SidebarItem extends StatelessWidget {
           height: 48,
           margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(6.0),
-          ),
+          decoration: BoxDecoration(color: backgroundColor, borderRadius: BorderRadius.circular(6.0)),
           child: Row(
             children: [
               Icon(icon, color: color, size: 20),

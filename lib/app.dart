@@ -4,19 +4,40 @@ import 'package:go_router/go_router.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_theme.dart';
 import 'package:pickles_lab_dashboard/app/presentation/dashboard_screen/dashboard_screen.dart';
 
+import 'app/presentation/orders_screen/Orders_screen.dart';
+import 'app/widgets/responsive_layout.dart';
+
 // Router configuration using go_router
 final _router = GoRouter(
+  initialLocation: '/',
   routes: [
-    GoRoute(
-      path: '/',
-      name: 'dashboard',
-      builder: (context, state) => const DashboardScreen(),
+    // 1. ShellRoute: Defines the persistent layout (ResponsiveLayout)
+    ShellRoute(
+      // The builder is responsible for rendering the shared UI (Sidebar/Top Nav)
+      builder: (context, state, child) {
+        // 'child' is the widget for the current sub-route (DashboardScreen, OrdersScreen)
+        return ResponsiveLayout(
+          child: child,
+        );
+      },
+      routes: [
+        // 1a. Dashboard Route (Home)
+        GoRoute(
+          path: '/',
+          name: 'dashboard',
+          builder: (context, state) => const DashboardScreen(),
+        ),
+        // 1b. Orders Route
+        GoRoute(
+          path: '/orders',
+          name: 'orders',
+          builder: (context, state) => const OrdersScreen(),
+        ),
+
+        // Add more routes here (e.g., /products, /customers)
+      ],
     ),
-    // Add more routes here (e.g., /orders, /products)
   ],
-  // Use path strategy for Flutter Web URLs (clean URLs)
-  // For production, you may need server configuration (e.g., .htaccess or nginx rules)
-  // For development, this keeps URLs cleaner.
   debugLogDiagnostics: true,
 );
 
