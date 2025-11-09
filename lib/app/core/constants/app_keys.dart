@@ -39,6 +39,15 @@ class AppKeys {
   static const analyticsScreen = ValueKey('analyticsScreen');
   static const sellersScreen = ValueKey('sellersScreen');
   static const settingsScreen = ValueKey('settingsScreen');
+  static const dashboardDropDown = ValueKey('dashboardDropDown');
+
+
+  // Order screen widgets
+  static const orderDetailsScreen = ValueKey('orderDetailsScreen');
+  static const recentOrdersScreen = ValueKey('recentOrdersScreen');
+  static const ordersDropDown = ValueKey('ordersDropDown');
+  static const recentCustomersScreen = ValueKey('recentCustomersScreen');
+
 
 
   // Re-usable Widgets

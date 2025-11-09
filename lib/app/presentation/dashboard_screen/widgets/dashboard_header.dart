@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pickles_lab_dashboard/app/core/constants/app_keys.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 import 'package:pickles_lab_dashboard/app/core/utils/app_log.dart';
+import 'package:pickles_lab_dashboard/app/widgets/date_range_selector.dart';
+import 'package:pickles_lab_dashboard/app/widgets/elevated_icon_button.dart';
 
 /// The header section of the dashboard containing the title, date range selector,
 /// and the export button.
@@ -101,83 +104,30 @@ class _DashboardHeaderState extends State<DashboardHeader> {
 
   List<Widget> actionRowWidget({required bool isMobile}) {
     return [
-      // Date Range Selector (Dropdown)
-      _buildDateRangeSelector(context, isMobile),
+      /// Builds the custom-styled dropdown for the date range.
+      DateRangeSelector(
+        key: AppKeys.dashboardDropDown,
+        semanticsLabel: "Select a date range for the dashboard",
+        onDateRangeChanged: (String selectedRange) {
+          _dateRange = selectedRange;
+        },
+        initialValue: _dateRange,
+        options: _dateRangeOptions,
+      ),
 
       // Vertical spacing for mobile
       isMobile ? const SizedBox(height: 8.0) : const SizedBox(width: 8.0),
 
       // Export Button
-      _buildExportButton(context, isMobile ? 158 : 118),
+      ElevatedIconButton(
+        label: "Export",
+        semanticsLabel: "Export data to CSV",
+        width: isMobile ? 158 : 118,
+        icon: const Icon(Icons.file_download_outlined, size: 20, color: AppColors.cardBackground),
+        onExportTapped: () {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Exporting data...')));
+        },
+      ),
     ];
-  }
-
-  /// Builds the custom-styled dropdown for the date range.
-  Widget _buildDateRangeSelector(BuildContext context, bool isMobile) {
-    return SizedBox(
-      width: 158,
-      child: Semantics(
-        label: 'Select date range',
-        child: DropdownButtonFormField<String>(
-          initialValue: _dateRange,
-          onChanged: (String? newValue) {
-            if (newValue != null) {
-              setState(() {
-                _dateRange = newValue;
-              });
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Date range set to: $_dateRange')));
-            }
-          },
-          items: _dateRangeOptions.map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value, style: Theme.of(context).textTheme.bodyMedium),
-            );
-          }).toList(),
-          decoration: const InputDecoration(
-            isDense: true,
-            contentPadding: EdgeInsets.only(left: 10, right: 0, top: 8, bottom: 8),
-            hintText: 'Select Range',
-            fillColor: AppColors.cardBackground,
-            // Override Input Theme to match HTML (bg-white)
-            filled: true,
-          ),
-          padding: EdgeInsets.zero,
-          icon: const Icon(Icons.keyboard_arrow_down, color: AppColors.textMedium),
-        ),
-      ),
-    );
-  }
-
-  /// Builds the primary "Export" button.
-  Widget _buildExportButton(BuildContext context, double width) {
-    return Container(
-      width: width,
-      decoration: BoxDecoration(
-        //  border: Border.all(color: Colors.black, width: 2),
-      ),
-      child: Semantics(
-        button: true,
-        label: 'Export data to CSV',
-        child: ElevatedButton.icon(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Exporting data...')));
-          },
-          icon: const Icon(Icons.file_download_outlined, size: 20, color: AppColors.cardBackground),
-          label: Text(
-            'Export',
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium!.copyWith(color: AppColors.cardBackground, fontWeight: FontWeight.w600),
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
-            elevation: 0,
-            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-          ),
-        ),
-      ),
-    );
   }
 }
