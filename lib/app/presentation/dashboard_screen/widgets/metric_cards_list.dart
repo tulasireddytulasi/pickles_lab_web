@@ -46,28 +46,27 @@ class _MetricCardsListState extends State<MetricCardsList> {
     return LayoutBuilder(
       builder: (context, constraints) {
         // Use a grid with dynamic columns based on screen width
-
         final screenWidth = constraints.maxWidth;
         final crossAxisCount = _getCrossAxisCount(screenWidth);
 
-        // 1. Calculate the total width consumed by padding and spacing.
-        final double totalHorizontalSpace = crossAxisCount - 1;
+        const double gridSpacing = 16.0;
+
+        // 1. Calculate the total width consumed by spacing.
+        final double totalHorizontalSpace = gridSpacing * (crossAxisCount > 1 ? crossAxisCount - 1 : 0);
 
         // 2. Calculate the available width for all cards.
         final double availableGridWidth = screenWidth - totalHorizontalSpace;
 
         // 3. Calculate the width of a single card.
-        // This is the true Card Width (W) in the W/H ratio.
         final double cardWidth = availableGridWidth / crossAxisCount;
 
-        // 4. Define a safe, desired fixed height (H) for the Seller Card.
-        // This value should be large enough to contain all content but small enough to prevent pixel overflow.
-        // We'll use 320px as a safe maximum height for desktop/web cards.
-        // This is the key to preventing the vertical overflow error.
+        // 4. Define a fixed height for the card.
         const double desiredCardHeight = 144.0;
 
-        // 5. Calculate the dynamic aspect ratio: Width / Height
-        final double childAspectRatio = cardWidth / desiredCardHeight;
+        // 5. Calculate the dynamic aspect ratio, ensuring it's always positive.
+        final double childAspectRatio = (cardWidth > 0 && desiredCardHeight > 0)
+            ? cardWidth / desiredCardHeight
+            : 1.0; // Fallback to 1.0 aspect ratio
 
         // --- End Dynamic Aspect Ratio Calculation ---
 
@@ -78,8 +77,8 @@ class _MetricCardsListState extends State<MetricCardsList> {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: crossAxisCount,
             childAspectRatio: childAspectRatio,
-            crossAxisSpacing: 16.0,
-            mainAxisSpacing: 16.0,
+            crossAxisSpacing: gridSpacing,
+            mainAxisSpacing: gridSpacing,
           ),
           itemCount: metricData.length,
           itemBuilder: (context, index) {

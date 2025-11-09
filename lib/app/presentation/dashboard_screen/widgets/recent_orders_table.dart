@@ -43,7 +43,7 @@ class RecentOrdersTable extends StatelessWidget {
           child: ConstrainedBox(
             constraints: BoxConstraints(minWidth: constraints.maxWidth),
             child: DataTable(
-              columnSpacing: 30,
+              columnSpacing: 24,
               dataRowMinHeight: 60,
               dataRowMaxHeight: 60,
               headingRowColor: WidgetStateProperty.resolveWith((states) => AppColors.background),
@@ -79,7 +79,7 @@ class RecentOrdersTable extends StatelessWidget {
                               color: AppColors.border,
                             ),
                             clipBehavior: Clip.antiAlias,
-                            margin: const EdgeInsets.only(right: 12),
+                            margin: const EdgeInsets.only(right: 8),
                             child: Image.network(
                               order.productImageUrl,
                               fit: BoxFit.cover,
@@ -87,7 +87,6 @@ class RecentOrdersTable extends StatelessWidget {
                               const Center(child: Icon(Icons.broken_image, size: 20, color: AppColors.textMedium)),
                             ),
                           ),
-                          const SizedBox(width: 10),
                           Expanded(child: Text(order.productName, style: theme.textTheme.bodyMedium, overflow: TextOverflow.ellipsis,)),
                         ],
                       ),
