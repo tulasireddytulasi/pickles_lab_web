@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pickles_lab_dashboard/app/core/constants/app_keys.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 
 /// The fixed top header bar. Includes search, notifications, and user profile.
@@ -54,6 +55,7 @@ class _TopNavigationBarState extends State<TopNavigationBar> {
             children: [
               // Notification Icon
               _buildIconButton(
+                key: AppKeys.topNavNotificationsButton,
                 icon: Icons.notifications_none,
                 tooltip: 'Notifications',
                 onTap: () => _showSnackbar(context, 'Notifications tapped'),
@@ -61,6 +63,7 @@ class _TopNavigationBarState extends State<TopNavigationBar> {
 
               // Settings Icon (Added for common dashboard functionality)
               _buildIconButton(
+                key: AppKeys.topNavSettingsButton,
                 icon: Icons.settings_outlined,
                 tooltip: 'Settings',
                 onTap: () => _showSnackbar(context, 'Settings tapped'),
@@ -94,6 +97,7 @@ class _TopNavigationBarState extends State<TopNavigationBar> {
           label: 'Search dashboard content',
           textField: true,
           child: TextField(
+            key: AppKeys.topNavSearchField,
             controller: _searchController,
             decoration: InputDecoration(
               hintText: 'Search...',
@@ -117,6 +121,7 @@ class _TopNavigationBarState extends State<TopNavigationBar> {
 
   // Helper to build a clickable icon button
   Widget _buildIconButton({
+    Key? key,
     required IconData icon,
     required String tooltip,
     VoidCallback? onTap
@@ -129,6 +134,7 @@ class _TopNavigationBarState extends State<TopNavigationBar> {
         child: Tooltip(
           message: tooltip,
           child: InkWell(
+            key: key,
             onTap: onTap,
             borderRadius: BorderRadius.circular(20),
             child: Container(
@@ -153,6 +159,7 @@ class _TopNavigationBarState extends State<TopNavigationBar> {
       child: Tooltip(
         message: 'View Profile',
         child: InkWell(
+          key: AppKeys.topNavProfileButton,
           onTap: () => _showSnackbar(context, 'User profile tapped'),
           child: Row(
             children: [

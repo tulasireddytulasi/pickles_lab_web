@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pickles_lab_dashboard/app/core/constants/app_keys.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 
 /// The left navigation sidebar visible on desktop screens.
@@ -42,6 +43,7 @@ class DesktopSidebar extends StatelessWidget {
 
           // Menu Items (Fully Implemented)
           SidebarItem(
+            key: AppKeys.sidebarItemDashboard,
             icon: Icons.dashboard_outlined,
             title: 'Dashboard',
             path: '/',
@@ -50,6 +52,7 @@ class DesktopSidebar extends StatelessWidget {
             onTap: () => context.go('/'),
           ),
           SidebarItem(
+            key: AppKeys.sidebarItemOrders,
             // HTML: ri-shopping-bag-3-line
             icon: Icons.shopping_bag_outlined,
             title: 'Orders',
@@ -58,6 +61,7 @@ class DesktopSidebar extends StatelessWidget {
             onTap: () => context.go('/orders'),
           ),
           SidebarItem(
+            key: AppKeys.sidebarItemProducts,
             // HTML: ri-store-2-line
             icon: Icons.store_outlined,
             title: 'Products',
@@ -66,6 +70,7 @@ class DesktopSidebar extends StatelessWidget {
             onTap: () => context.go('/products'),
           ),
           SidebarItem(
+            key: AppKeys.sidebarItemCustomers,
             // HTML: ri-user-3-line
             icon: Icons.people_outlined,
             title: 'Customers',
@@ -74,6 +79,7 @@ class DesktopSidebar extends StatelessWidget {
             onTap: () => context.go('/customers'),
           ),
           SidebarItem(
+            key: AppKeys.sidebarItemAnalytics,
             // HTML: ri-bar-chart-2-line
             icon: Icons.bar_chart_outlined,
             title: 'Analytics',
@@ -82,6 +88,7 @@ class DesktopSidebar extends StatelessWidget {
             onTap: () => context.go('/analytics'),
           ),
           SidebarItem(
+            key: AppKeys.sidebarItemSellers,
             // HTML: ri-store-3-line
             icon: Icons.storefront_outlined,
             title: 'Sellers/Merchants',
@@ -90,6 +97,7 @@ class DesktopSidebar extends StatelessWidget {
             onTap: () => context.go('/sellers'),
           ),
           SidebarItem(
+            key: AppKeys.sidebarItemSettings,
             // HTML: ri-settings-4-line
             icon: Icons.settings_outlined,
             title: 'Settings',

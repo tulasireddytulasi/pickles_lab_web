@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pickles_lab_dashboard/app/core/constants/app_keys.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_theme.dart';
 import 'package:pickles_lab_dashboard/app/widgets/navigation/desktop_sidebar.dart';
 import 'package:pickles_lab_dashboard/app/widgets/navigation/mobile_bottom_nav.dart';
@@ -28,14 +29,14 @@ class ResponsiveLayout extends StatelessWidget {
               child: Row(
                 children: [
                   // 1. Sidebar (Fixed width)
-                  const DesktopSidebar(),
+                  const DesktopSidebar(key: AppKeys.desktopSidebar),
 
                   // 2. Main Content Area (Flexible width)
                   Expanded(
                     child: Column(
                       children: [
                         // 2a. Top Navigation Bar (Stretches across main content)
-                        const TopNavigationBar(),
+                        const TopNavigationBar(key: AppKeys.topNavigationBar),
 
                         // 2b. Main Dashboard Content (The scrollable body)
                         Expanded(
@@ -57,11 +58,11 @@ class ResponsiveLayout extends StatelessWidget {
               automaticallyImplyLeading: false, // Prevents back button on root
               toolbarHeight: 64, // Standard AppBar height for consistency
               titleSpacing: 0,
-              title: const TopNavigationBar(isMobile: true),
+              title: const TopNavigationBar(key: AppKeys.topNavigationBar, isMobile: true),
             ),
 
             // Bottom Nav
-            bottomNavigationBar: const MobileBottomNav(),
+            bottomNavigationBar: const MobileBottomNav(key: AppKeys.mobileBottomNav),
 
             // Main Dashboard Content
             body: SafeArea(

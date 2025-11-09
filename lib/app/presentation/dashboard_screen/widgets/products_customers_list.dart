@@ -27,41 +27,15 @@ class _ProductsCustomersListState extends State<ProductsCustomersList> {
           const Expanded(child: TopProductsList()),
           const SizedBox(width: 16.0),
           // Recent Customers Placeholder (1/2 width)
-          Expanded(
-            // child: Card(
-            //   child: Container(
-            //     padding: const EdgeInsets.all(20),
-            //     height: 400, // Placeholder height for visual balance
-            //     child: Center(
-            //       child: Text('Recent Customers List Goes Here (Step 11)',
-            //         style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.textMedium),
-            //         textAlign: TextAlign.center,
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            child: const RecentCustomersList(),
-          ),
+          // Expanded(
+          //   child: const RecentCustomersList(),
+          // ),
         ],
       )
           : Column(
         children: [
           const TopProductsList(),
           const SizedBox(height: 16.0),
-          // Recent Customers Placeholder for mobile
-          // Card(
-          //   child: Container(
-          //     padding: const EdgeInsets.all(20),
-          //     height: 200,
-          //     width: double.infinity,
-          //     child: Center(
-          //       child: Text('Recent Customers List Goes Here (Step 11)',
-          //         style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.textMedium),
-          //         textAlign: TextAlign.center,
-          //       ),
-          //     ),
-          //   ),
-          // ),
           const RecentCustomersList(),
         ],
       );

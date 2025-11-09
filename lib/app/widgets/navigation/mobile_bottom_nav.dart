@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pickles_lab_dashboard/app/core/constants/app_keys.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
 
 /// The bottom navigation bar visible on mobile screens.
@@ -31,23 +32,38 @@ class MobileBottomNav extends StatelessWidget {
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard_outlined),
+            icon: KeyedSubtree(
+              key: AppKeys.bottomNavDashboard,
+              child: Icon(Icons.dashboard_outlined),
+            ),
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: KeyedSubtree(
+              key: AppKeys.bottomNavOrders,
+              child: Icon(Icons.shopping_cart_outlined),
+            ),
             label: 'Orders',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: KeyedSubtree(
+              key: AppKeys.bottomNavProducts,
+              child: Icon(Icons.shopping_bag_outlined),
+            ),
             label: 'Products',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
+            icon: KeyedSubtree(
+              key: AppKeys.bottomNavCustomers,
+              child: Icon(Icons.person_outline),
+            ),
             label: 'Customers',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
+            icon: KeyedSubtree(
+              key: AppKeys.bottomNavSettings,
+              child: Icon(Icons.settings_outlined),
+            ),
             label: 'Settings',
           ),
         ],
