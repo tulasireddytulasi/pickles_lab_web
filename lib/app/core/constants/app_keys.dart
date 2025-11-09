@@ -34,6 +34,12 @@ class AppKeys {
   // Screen Widgets
   static const dashboardScreen = ValueKey('dashboardScreen');
   static const ordersScreen = ValueKey('ordersScreen');
+  static const productsScreen = ValueKey('productsScreen');
+  static const customersScreen = ValueKey('customersScreen');
+  static const analyticsScreen = ValueKey('analyticsScreen');
+  static const sellersScreen = ValueKey('sellersScreen');
+  static const settingsScreen = ValueKey('settingsScreen');
+
 
   // Re-usable Widgets
   static const metricCard = ValueKey('metricCard');

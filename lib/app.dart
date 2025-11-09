@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pickles_lab_dashboard/app/core/constants/app_keys.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_theme.dart';
+import 'package:pickles_lab_dashboard/app/presentation/analytics_screen/analytics_screen.dart';
+import 'package:pickles_lab_dashboard/app/presentation/customers_screen/customers_screen.dart';
 import 'package:pickles_lab_dashboard/app/presentation/dashboard_screen/dashboard_screen.dart';
+import 'package:pickles_lab_dashboard/app/presentation/products_screen/products_screen.dart';
+import 'package:pickles_lab_dashboard/app/presentation/sellers_screen/sellers_screen.dart';
+import 'package:pickles_lab_dashboard/app/presentation/settings_screen/settings_screen.dart';
 
 import 'app/presentation/orders_screen/Orders_screen.dart';
 import 'app/widgets/responsive_layout.dart';
@@ -35,8 +40,36 @@ final _router = GoRouter(
           name: 'orders',
           builder: (context, state) => const OrdersScreen(key: AppKeys.ordersScreen),
         ),
-
-        // Add more routes here (e.g., /products, /customers)
+        // 1c. Products Route
+        GoRoute(
+          path: '/products',
+          name: 'products',
+          builder: (context, state) => const ProductsScreen(key: AppKeys.productsScreen),
+        ),
+        // 1d. Customers Route
+        GoRoute(
+          path: '/customers',
+          name: 'customers',
+          builder: (context, state) => const CustomersScreen(key: AppKeys.customersScreen),
+        ),
+        // 1e. Analytics Route
+        GoRoute(
+          path: '/analytics',
+          name: 'analytics',
+          builder: (context, state) => const AnalyticsScreen(key: AppKeys.analyticsScreen),
+        ),
+        // 1f. Sellers Route
+        GoRoute(
+          path: '/sellers',
+          name: 'sellers',
+          builder: (context, state) => const SellersScreen(key: AppKeys.sellersScreen),
+        ),
+        // 1g. Settings Route
+        GoRoute(
+          path: '/settings',
+          name: 'settings',
+          builder: (context, state) => const SettingsScreen(key: AppKeys.settingsScreen),
+        ),
       ],
     ),
   ],
