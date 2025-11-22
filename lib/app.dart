@@ -10,7 +10,7 @@ import 'package:pickles_lab_dashboard/app/presentation/products_screen/products_
 import 'package:pickles_lab_dashboard/app/presentation/sellers_screen/sellers_screen.dart';
 import 'package:pickles_lab_dashboard/app/presentation/settings_screen/settings_screen.dart';
 
-import 'app/presentation/orders_screen/Orders_screen.dart';
+import 'app/presentation/orders_screen/orders_screen.dart';
 import 'app/widgets/responsive_layout.dart';
 
 // Router configuration using go_router
