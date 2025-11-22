@@ -110,6 +110,7 @@ class _DashboardHeaderState extends State<DashboardHeader> {
         semanticsLabel: "Select a date range for the dashboard",
         onDateRangeChanged: (String selectedRange) {
           _dateRange = selectedRange;
+          AppLog.info("_dateRange: $_dateRange");
         },
         initialValue: _dateRange,
         options: _dateRangeOptions,

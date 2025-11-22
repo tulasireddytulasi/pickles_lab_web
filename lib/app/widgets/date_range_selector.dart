@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pickles_lab_dashboard/app/core/theme/app_colors.dart';
+import 'package:pickles_lab_dashboard/app/core/utils/app_log.dart';
 
 class DateRangeSelector extends StatefulWidget {
   final Function(String) onDateRangeChanged;
@@ -26,6 +27,7 @@ class _DateRangeSelectorState extends State<DateRangeSelector> {
   void initState() {
     super.initState();
     _currentRangeNotifier = ValueNotifier<String>(widget.initialValue);
+    AppLog.info("_currentRangeNotifier ${widget.semanticsLabel} : ${_currentRangeNotifier.value}");
   }
 
   @override
