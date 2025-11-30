@@ -6,6 +6,7 @@ import 'package:pickles_lab_dashboard/app/data/models/order_model.dart';
 import 'package:pickles_lab_dashboard/app/presentation/dashboard_screen/widgets/data_display/status_badge.dart';
 import 'package:intl/intl.dart';
 
+import 'order_item_summary_cell.dart';
 import 'payment_badge.dart';
 
 /// Implements the logic required for PaginatedDataTable (Desktop View).
@@ -41,6 +42,10 @@ class OrderDataSource extends DataTableSource {
         DataCell(Text(order.customerName)),
         // 3. Date
         DataCell(Text(formatter.format(order.orderDate))),
+
+        // 3. Items (NEW CELL)
+        DataCell(OrderItemSummaryCell(order: order)),
+
         // 4. Status
         DataCell(StatusBadge(status: order.status.name)),
         // 5. Payment Status

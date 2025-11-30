@@ -68,6 +68,7 @@ class OrdersTable extends StatelessWidget {
               DataColumn(label: Text('Order ID')),
               DataColumn(label: Text('Customer')),
               DataColumn(label: Text('Date')),
+              DataColumn(label: Text('Items')),
               DataColumn(label: Text('Status')),
               DataColumn(label: Text('Payment')),
               DataColumn(label: Text('Total', textAlign: TextAlign.right)),

@@ -6,6 +6,7 @@ import 'package:pickles_lab_dashboard/app/data/models/order_model.dart';
 import 'package:pickles_lab_dashboard/app/presentation/dashboard_screen/widgets/data_display/status_badge.dart';
 import 'package:intl/intl.dart';
 
+import 'order_item_summary_cell.dart';
 import 'payment_badge.dart';
 
 /// A single card/cell view for an order, used in the responsive mobile layout.
@@ -65,6 +66,11 @@ class OrdersTableCell extends StatelessWidget {
                 ),
               ],
             ),
+
+            const SizedBox(height: 12),
+
+            // Row 2.5: Items Summary (NEW ROW)
+            OrderItemSummaryCell(order: order), // <-- INTEGRATED HERE
             const Divider(height: 24),
 
             // Row 3: Status, Payment, and Action Button
