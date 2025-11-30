@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pickles_lab_dashboard/app/core/utils/app_enums.dart';
+import 'package:pickles_lab_dashboard/app/presentation/orders_screen/widgets/search_filter_bar.dart';
 import 'package:pickles_lab_dashboard/app/presentation/orders_screen/widgets/stats_grid.dart';
 import 'widgets/orders_control_header.dart';
 
@@ -21,6 +23,33 @@ class OrdersScreen extends StatelessWidget {
           const StatsGrid(),
 
           const SizedBox(height: 32.0),
+
+          const SizedBox(height: 32.0),
+
+          // 3. Search and Filter Bar (INTEGRATED)
+          SearchFilterBar(
+            onSearchChanged: (query) {},
+            onStatusChanged: (query) {},
+            onPaymentChanged: (query) {},
+            onOrderTypeChanged: (query) {},
+            onDateChanged: (date, isStart) {},
+            onResetTapped: () {},
+
+            // Current values passed down
+            selectedStatus: OrderStatus.completed,
+            selectedPaymentType: PaymentType.paid,
+            selectedOrderType: OrderType.delivery,
+            startDate: DateTime(
+              DateTime.now().year,
+              DateTime.now().month,
+              DateTime.now().day,
+            ),
+            endDate: DateTime(
+              DateTime.now().year,
+              DateTime.now().month,
+              DateTime.now().day,
+            ),
+          ),
         ],
       ),
     );

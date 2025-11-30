@@ -47,6 +47,16 @@ class AppKeys {
   static const recentOrdersScreen = ValueKey('recentOrdersScreen');
   static const ordersDropDown = ValueKey('ordersDropDown');
   static const recentCustomersScreen = ValueKey('recentCustomersScreen');
+  //AppKeys.ordersSearchBar
+  static const ordersSearchBar = ValueKey('ordersSearchBar');
+  static const productsCustomersScreen = ValueKey('productsCustomersScreen');
+  static const customersDropDown = ValueKey('customersDropDown');
+  static const productsDropDown = ValueKey('productsDropDown');
+  static const recentOrdersDropDown = ValueKey('recentOrdersDropDown');
+  static const recentCustomersDropDown = ValueKey('recentCustomersDropDown');
+  static const productsCustomersDropDown = ValueKey('productsCustomersDropDown');
+
+
 
 
 
