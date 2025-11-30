@@ -43,34 +43,37 @@ class OrdersTable extends StatelessWidget {
         onEdit: onEdit,
       );
 
-      return Card(
-        // Use Card for the container styling matching the rest of the dashboard
-        shape: theme.cardTheme.shape,
-        color: AppColors.cardBackground,
-        child: PaginatedDataTable(
-          // Paging controls
-          header: const Text('Recent Orders', style: TextStyle(fontWeight: FontWeight.bold)),
-          source: dataSource,
-          rowsPerPage: rowsPerPage,
-          onRowsPerPageChanged: onRowsPerPageChanged,
-          availableRowsPerPage: const [10, 25, 50],
-          showCheckboxColumn: false,
+      return SizedBox(
+        width: double.infinity,
+        child: Card(
+          // Use Card for the container styling matching the rest of the dashboard
+          shape: theme.cardTheme.shape,
+          color: AppColors.cardBackground,
+          child: PaginatedDataTable(
+            // Paging controls
+            header: const Text('Recent Orders', style: TextStyle(fontWeight: FontWeight.bold)),
+            source: dataSource,
+            rowsPerPage: rowsPerPage,
+            onRowsPerPageChanged: onRowsPerPageChanged,
+            availableRowsPerPage: const [10, 25, 50],
+            showCheckboxColumn: false,
 
-          // Style adjustments for a cleaner look
-          dataRowMinHeight: 50,
-          dataRowMaxHeight: 50,
-          columnSpacing: 30, // Tighter spacing than default
-          horizontalMargin: 20,
+            // Style adjustments for a cleaner look
+            dataRowMinHeight: 50,
+            dataRowMaxHeight: 50,
+            columnSpacing: 30, // Tighter spacing than default
+            horizontalMargin: 20,
 
-          columns: const [
-            DataColumn(label: Text('Order ID')),
-            DataColumn(label: Text('Customer')),
-            DataColumn(label: Text('Date')),
-            DataColumn(label: Text('Status')),
-            DataColumn(label: Text('Payment')),
-            DataColumn(label: Text('Total', textAlign: TextAlign.right)),
-            DataColumn(label: Text('Actions')),
-          ],
+            columns: const [
+              DataColumn(label: Text('Order ID')),
+              DataColumn(label: Text('Customer')),
+              DataColumn(label: Text('Date')),
+              DataColumn(label: Text('Status')),
+              DataColumn(label: Text('Payment')),
+              DataColumn(label: Text('Total', textAlign: TextAlign.right)),
+              DataColumn(label: Text('Actions')),
+            ],
+          ),
         ),
       );
     }
