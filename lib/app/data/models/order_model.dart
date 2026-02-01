@@ -6,7 +6,7 @@ class OrderModel {
   final String customerName;
   final DateTime orderDate;
   final double totalAmount;
-  // Todo: Get the value of order status and add to the enum
+  /// Order status (see `OrderStatus` enum in `app_enums.dart`).
   final OrderStatus status;
   final PaymentType paymentStatus;
   final List<OrderItemModel> items; // <-- NEW FIELD
