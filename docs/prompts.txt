@@ -1,0 +1,135 @@
+I am developing a Celebreties Wallpapers app:
+
+Feature: User can list images with filters
+
+Filters:
+1. Can search with DateTime
+2. with name
+3. Id
+
+and there could different types like example:
+
+Saree, Costumes, and dresses
+
+Persons: example
+Kajal with Ram Charan images
+
+Now give perfect JOSN Object for this
+
+====================================================
+
+I have an existing HTML code that I want to convert into an Flutter application using Dart. I want the app to follow the proper use of UI Widgets, Navigation, etc.
+
+Please do not write the entire code in one go. Instead, follow this step-by-step process:
+First, analyze the HTML code and provide a list of UI components required to build the screen.
+I will go through the list and approve or adjust it.
+Then, we will proceed by creating each UI component one at a time.
+After each part is shared, I will check and validate it. If any issues arise, I’ll fix them or let you know before we move to the next part.
+For data fetching, use fake APIs (like mock data or a mock server).
+Follow a clean and scalable folder structure, and whenever you write code:
+Mention the purpose of the code
+Clearly specify the file name
+Mention the folder/package name it belongs to.
+And Create App Theme for entire app styles and colors
+
+    git config --global user.email "tulasireddykagithala@gmail.com"
+
+
+==============================================================
+
+I have an existing HTML page that I want converted into a Flutter Web application using Dart. Follow a strict step-by-step approach (do not emit the whole app at once). The app is a “Pickles Dashboard” (web-first but mobile responsive). We already have reusable widgets for Left Navigation (sidebar) and Top Navigation (header / app bar) — reuse them.
+
+High-level rules
+
+Step-by-step only:
+
+Step 1 (analysis): Analyze the HTML I’ll provide and produce a list of UI components required to build the screen (one message). I will review/approve adjustments.
+
+Step 2+: After I approve the components list, implement one UI component at a time. After you share code for a component, I will validate it; we only move on when I approve.
+
+Do not ask me to wait or promise future-delivered content. Provide each part in the current response when requested.
+
+Every code snippet must include:
+
+Purpose of the code (1–2 lines).
+
+File name (exact).
+
+Folder / package it belongs to (exact path).
+
+If the file is a widget, state whether it’s stateless/stateful and why.
+
+Folder structure: use a clean, scalable pattern (example below). Always place files in the correct folder and declare imports relative to that structure.
+
+Mock APIs: Use fake APIs / mock data (local JSON files or a simple mock service). No real backend calls.
+
+Styling & theme: Create a centralized AppTheme for colors, text styles, spacing, and breakpoints. All widgets must use that theme.
+
+Responsiveness: The UI must be responsive across desktop/tablet/mobile widths. Use breakpoints and responsive layout widgets (e.g., LayoutBuilder, Flex, MediaQuery, ResponsiveBuilder pattern).
+
+Navigation & routing: Use named routes or go_router (pick one and be consistent). Explain the navigation flow for the screen.
+
+Reusability: Reuse Left and Top Navigation widgets. If they don't exist in code yet, create minimal reusable versions and place them under lib/widgets/ with clear names.
+
+Accessibility & semantics: Use semantic widgets (buttons, InkWell, Tooltip, tappable areas), and make keyboard-accessible where relevant.
+
+Testing / validation: Provide at least one small unit/widget test example for a key component when the main screen is built.
+
+Code style: Use idiomatic Dart/Flutter patterns and comment non-obvious logic.
+
+
+
+
+=================================================================================================================
+
+
+I have an existing HTML code that I want to convert into an Flutter application using Dart. I want the app to follow the proper use of UI Widgets, Navigation, etc.
+
+Please do not write the entire code in one go. Instead, follow this step-by-step process:
+
+First, analyze the HTML code and provide a list of UI components required to build the screen.
+
+I will go through the list and approve or adjust it.
+
+Then, we will proceed by creating each UI component one at a time.
+
+After each part is shared, I will check and validate it. If any issues arise, I’ll fix them or let you know before we move to the next part.
+
+For data fetching, use fake APIs (like mock data or a mock server).
+
+Follow a clean and scalable folder structure, and whenever you write code:
+
+Mention the purpose of the code
+
+Clearly specify the file name
+
+Mention the folder/package name it belongs to.
+
+And Create App Theme for entire app styles and colors
+
+===============================================
+
+I have an existing HTML code that I want to convert into an Flutter application using Dart. I want the app to follow the proper use of UI Widgets, Navigation, etc.
+
+
+
+Please do not write the entire code in one go. Instead, follow this step-by-step process:
+
+First, analyze the HTML code and provide a list of UI components required to build the screen.
+
+I will go through the list and approve or adjust it.
+
+Then, we will proceed by creating each UI component one at a time.
+
+After each part is shared, I will check and validate it. If any issues arise, I’ll fix them or let you know before we move to the next part.
+
+For data fetching, use fake APIs (like mock data or a mock server).
+
+Follow a clean and scalable folder structure, and whenever you write code:
+
+Mention the purpose of the code
+
+Clearly specify the file name
+
+Mention the folder/package name it belongs to. I already have a AppTheme file
+
